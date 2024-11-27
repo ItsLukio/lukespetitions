@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Search Petition</title>
+</head>
+<body>
+<header>
+  <button onclick="window.location.href='/lukespetitions-0.0.1-SNAPSHOT'">Home</button>
+
+</header>
+<h1>Search for a Petition</h1>
+<form th:action="@{/searchResults}" method="get">
+
+  <label for="title">Search:</label>
+  <input type="text" id="title" name="title" required>
+
+  <button type="submit">Search</button>
+</form>
+</body>
+</html>
