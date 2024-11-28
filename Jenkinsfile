@@ -10,13 +10,13 @@ pipeline {
 
         stage('Set Permissions') {
             steps {
-                sh 'chmod +x ./lukespetitions/mvnw'
+                sh 'chmod +x ./demo/mvnw'
             }
         }
 
         stage('Build') {
             steps {
-                sh './lukespetitions/mvnw -f ./lukespetitions/pom.xml clean package'
+                sh './demo/mvnw -f ./demo/pom.xml clean package'
             }
         }
 
@@ -37,7 +37,7 @@ pipeline {
     post {
         success {
             // Archive the WAR file for reference
-            archiveArtifacts artifacts: 'lukespetitions/target/*.war', allowEmptyArchive: true
+            archiveArtifacts artifacts: 'demo/target/*.war', allowEmptyArchive: true
         }
     }
 }
