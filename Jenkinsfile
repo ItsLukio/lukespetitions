@@ -22,14 +22,14 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                // Use the correct path for the Dockerfile
-                sh 'docker build -t myapp -f Dockerfile ./lukespetitions'
+                // Use the correct path for the Dockerfile and build context
+                sh 'docker build -t lukespetitions -f Dockerfile ./demo'
                 
-                // Remove any existing container
-                sh 'docker rm -f "myappcontainer" || true'
+                // Remove any existing container named lukespetitions
+                sh 'docker rm -f "lukespetitions" || true'
                 
-                // Run the new container
-                sh 'docker run --name "myappcontainer" -p 9090:8080 --detach myapp:latest'
+                // Run the new container with the name lukespetitions
+                sh 'docker run --name "lukespetitions" -p 9090:8080 --detach lukespetitions:latest'
             }
         }
     }
