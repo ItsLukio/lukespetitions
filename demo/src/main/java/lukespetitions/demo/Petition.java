@@ -1,6 +1,6 @@
 package lukespetitions.demo;
 public class Petition {
-
+    // this is a test comment
     private int id;
     private String title;
     private String description;
